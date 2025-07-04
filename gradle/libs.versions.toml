@@ -1,0 +1,12 @@
+[versions]
+
+annotation = "26.0.2"
+adventure = "4.21.0"
+configurate = "4.2.0"
+
+[libraries]
+
+annotation = { group = "org.jetbrains", name = "annotations", version.ref = "annotation" }
+adventure = { group = "net.kyori", name = "adventure-api", version.ref = "adventure" }
+minimessage = { group = "net.kyori", name = "adventure-text-minimessage", version.ref = "adventure" }
+configurate-yaml = { group = "org.spongepowered", name = "configurate-yaml", version.ref = "configurate" }

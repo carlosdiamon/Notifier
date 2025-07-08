@@ -9,6 +9,8 @@ import java.util.List;
 
 public class AnnouncementImpl implements Announcement {
 
+	public static final Announcement EMPTY = new AnnouncementImpl(Collections.emptyList());
+
 	private final List<AnnouncementComponent> components;
 
 	public AnnouncementImpl(final @NotNull AnnouncementComponent component) {

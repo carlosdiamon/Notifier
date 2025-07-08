@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -52,6 +53,10 @@ public interface Announcement {
 
 	static @NotNull Announcement titles(final @NotNull String title) {
 		return new AnnouncementImpl(new TitlesComponent(title));
+	}
+
+	static @NotNull Announcement empty() {
+		return AnnouncementImpl.EMPTY;
 	}
 
 	static @NotNull Builder create() {

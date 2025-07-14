@@ -7,8 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 
 @SuppressWarnings("unused")
-public interface ResourceNotifier
-	extends Notifier {
+public interface ResourceNotifier extends Notifier {
 
 	void send(
 		final @NotNull Audience audience,

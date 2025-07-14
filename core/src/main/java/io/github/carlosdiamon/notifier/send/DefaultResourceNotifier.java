@@ -9,8 +9,7 @@ import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("unused")
-public class DefaultResourceNotifier
-	implements ResourceNotifier {
+public class DefaultResourceNotifier implements ResourceNotifier {
 
 	private final Notifier delegate;
 	private final AnnouncementProvider provider;
@@ -30,8 +29,10 @@ public class DefaultResourceNotifier
 		final @NotNull String path,
 		final @NotNull TagResolver... replacements
 	) {
-		final Announcement announcement = provider.resolve(audience, path);
-		send(audience, mode, announcement, replacements);
+		audience.forEachAudience(child -> {
+			final Announcement announcement = this.provider.resolve(child, path);
+			this.delegate.send(audience, mode, announcement, replacements);
+		});
 	}
 
 	@Override
@@ -41,6 +42,6 @@ public class DefaultResourceNotifier
 		final @NotNull Announcement announcement,
 		final @NotNull TagResolver... replacements
 	) {
-		delegate.send(audience, mode, announcement, replacements);
+		this.delegate.send(audience, mode, announcement, replacements);
 	}
 }

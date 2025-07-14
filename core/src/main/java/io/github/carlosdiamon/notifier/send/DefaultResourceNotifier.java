@@ -31,7 +31,7 @@ public class DefaultResourceNotifier implements ResourceNotifier {
 	) {
 		audience.forEachAudience(child -> {
 			final Announcement announcement = this.provider.resolve(child, path);
-			this.delegate.send(audience, mode, announcement, replacements);
+			this.delegate.send(child, mode, announcement, replacements);
 		});
 	}
 
